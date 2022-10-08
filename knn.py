@@ -2,7 +2,7 @@ import numpy as np
 from typing import List, Union
 from collections import Counter
 
-class KNN:
+class KNNClassifier:
     def __init__(self, k:int) -> None:
         self._k_neighbours = k
     
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test = train_test_split(X, y)
     
     print(f'Train Data Shape: {X_train.shape}\nTrain Label Shape: {y_train.shape}')
-    knn = KNN(k=5)
+    knn = KNNClassifier(k=5)
     knn.fit(X_train, y_train)
     predictions = knn.predict(X_test)
     
