@@ -10,9 +10,11 @@ class LogisticRegression:
         self._num_features = None
         self._num_samples = None
     
-    def fit(self, Xtrain:Union[list, np.array], ytrain: Union[list, np.array]):
+    def fit(self, Xtrain:Union[list, np.array], ytrain: Union[list, np.array]) -> None:
         self._num_samples, self._num_features = Xtrain.shape
         self._weights = np.zeros(self._num_features)
+        
+        # Gradient Desent
         
         for epoch in range(self._epochs):
             y_pred = self._sigmoid(np.dot(Xtrain, self._weights) + self._bias)
@@ -54,4 +56,4 @@ if __name__ == '__main__':
     lr.fit(X_train, y_train)
     predictions = lr.predict(X_test)
     
-    print(f'KNN Classifier F1-Score: {f1_score(y_test, predictions, average="weighted")}')
+    print(f'Logistic Regression Classifier F1-Score: {f1_score(y_test, predictions, average="weighted")}')

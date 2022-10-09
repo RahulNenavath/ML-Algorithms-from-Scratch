@@ -14,6 +14,8 @@ class LinearRegression:
         self._num_samples, self._num_features = Xtrain.shape
         self._weights = np.zeros(self._num_features)
         
+        # Gradient Desent
+        
         for epoch in range(self._epochs):
             # Y predicted
             y_preds = np.dot(Xtrain, self._weights) + self._bias
@@ -30,7 +32,7 @@ class LinearRegression:
             
             print(f'Epoch: {epoch} completed')
     
-    def predict(self, Xtest:Union[list, np.array]):
+    def predict(self, Xtest:Union[list, np.array]) -> np.array:
         return np.dot(Xtest, self._weights) + self._bias
 
 if __name__ == '__main__':
